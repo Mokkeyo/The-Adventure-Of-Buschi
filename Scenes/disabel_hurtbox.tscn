@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccp1hjpu5m76v"]
-
-[ext_resource type="Script" path="res://Scripts/disabel_hurtbox.gd" id="1_2h6oo"]
-
-[node name="DisabelHurtbox" type="Node2D"]
-script = ExtResource("1_2h6oo")
