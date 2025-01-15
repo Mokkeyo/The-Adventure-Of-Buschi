@@ -1,0 +1,83 @@
+[gd_scene load_steps=14 format=3 uid="uid://c6ouymtxbxhtf"]
+
+[ext_resource type="Script" path="res://Scripts/controls.gd" id="1_iy28i"]
+[ext_resource type="Texture2D" uid="uid://bxjeocmqembvk" path="res://Grafik/Button-Sheet.webp" id="2_diomr"]
+[ext_resource type="Texture2D" uid="uid://6607kqxdn6cg" path="res://Grafik/Bush.webp" id="2_qjklf"]
+[ext_resource type="Texture2D" uid="uid://b7rmoffleos4i" path="res://Grafik/Button_Pressed-Sheet.webp" id="3_m3q67"]
+[ext_resource type="FontFile" uid="uid://c18owl8guvbr5" path="res://Assets/PixelifySans-VariableFont_wght.ttf" id="3_ry61w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fv168"]
+texture = ExtResource("2_qjklf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t8iro"]
+texture = ExtResource("2_diomr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1jos1"]
+texture = ExtResource("3_m3q67")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b7aub"]
+texture = ExtResource("3_m3q67")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pbj07"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_drew8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hrya0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ho3t2"]
+
+[node name="Controls" type="Node2D"]
+script = ExtResource("1_iy28i")
+
+[node name="Hintergrund" type="Panel" parent="."]
+offset_right = 512.0
+offset_bottom = 288.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_fv168")
+
+[node name="ZurückKnopf" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 240.0
+offset_right = 82.0
+offset_bottom = 280.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_ry61w")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_t8iro")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1jos1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b7aub")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pbj07")
+text = "Back"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 210.0
+offset_right = 512.0
+offset_bottom = 288.0
+theme_override_colors/background_color = Color(1, 1, 1, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/search_result_color = Color(1, 1, 1, 0)
+theme_override_colors/search_result_border_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_ry61w")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_drew8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hrya0")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_ho3t2")
+text = "UP :  W
+LEFT :  A
+RIGHT :  D
+DOWN :  S
+DODGE :  SPACE
+ATTACK :  LMB
+Erdbruch: 1
+Heilung: 4"
+editable = false
+selecting_enabled = false
+
+[connection signal="pressed" from="ZurückKnopf" to="." method="_on_zurück_knopf_pressed"]

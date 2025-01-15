@@ -1,0 +1,109 @@
+[gd_scene load_steps=16 format=3 uid="uid://dqvor8xfvbphb"]
+
+[ext_resource type="Script" path="res://Scripts/golem.gd" id="1_h4tcc"]
+[ext_resource type="Texture2D" uid="uid://bm32bwj3euyqh" path="res://Assets/Sprite-0003.webp" id="2_m0w3g"]
+[ext_resource type="PackedScene" uid="uid://dshfmgyulrshs" path="res://Scenes/detection_area.tscn" id="2_twqbs"]
+[ext_resource type="PackedScene" uid="uid://7e0odiarlhle" path="res://Scenes/hurtBox.tscn" id="3_rwqnh"]
+[ext_resource type="PackedScene" uid="uid://did1lmobv5wea" path="res://Scenes/hitBox.tscn" id="4_n05c8"]
+[ext_resource type="PackedScene" uid="uid://b2qct6hmm5r5f" path="res://Scenes/attack_animation.tscn" id="6_183tt"]
+[ext_resource type="PackedScene" uid="uid://cr4fvx58qf0wg" path="res://Scenes/move_to_player.tscn" id="7_ac3et"]
+[ext_resource type="PackedScene" uid="uid://cvcgtb6nd37pw" path="res://Scenes/healthComponent.tscn" id="7_q178c"]
+[ext_resource type="PackedScene" uid="uid://ow7br6oblfq4" path="res://Scenes/BossBar.tscn" id="8_044vt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jhyg1"]
+radius = 480.394
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bwobr"]
+radius = 61.5224
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rjhsh"]
+radius = 24.0
+height = 114.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fm0sv"]
+radius = 62.0322
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ttpfq"]
+radius = 67.7422
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yyx16"]
+radius = 137.713
+
+[node name="Golem" type="CharacterBody2D" groups=["Enemy"]]
+script = ExtResource("1_h4tcc")
+max_speed = 200
+
+[node name="Sprite-0003" type="Sprite2D" parent="."]
+position = Vector2(-2, -5)
+scale = Vector2(0.28, 0.28)
+texture = ExtResource("2_m0w3g")
+
+[node name="DetectionArea" parent="." instance=ExtResource("2_twqbs")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_jhyg1")
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("3_rwqnh")]
+collision_layer = 5
+healthComponent = NodePath("../healthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_bwobr")
+debug_color = Color(0.326867, 0.029566, 0.0322495, 0.42)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="HitBox" parent="Node2D" instance=ExtResource("4_n05c8")]
+position = Vector2(-10, 0)
+collision_mask = 2
+dmg = 15.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/HitBox"]
+position = Vector2(103, 0)
+shape = SubResource("CapsuleShape2D_rjhsh")
+disabled = true
+
+[node name="AttackAnimation" parent="Node2D" instance=ExtResource("6_183tt")]
+position = Vector2(91, -17.25)
+rotation = 0.0
+scale = Vector2(0.895833, 0.7475)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fm0sv")
+
+[node name="CloseArea" parent="." instance=ExtResource("2_twqbs")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CloseArea"]
+shape = SubResource("CircleShape2D_ttpfq")
+
+[node name="MoveToPlayer" parent="." instance=ExtResource("7_ac3et")]
+visible = false
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="AttackArea" parent="." instance=ExtResource("2_twqbs")]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_yyx16")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="AttackDurtion" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="healthComponent" parent="." instance=ExtResource("7_q178c")]
+max_health = 200.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" parent="CanvasLayer" instance=ExtResource("8_044vt")]
+visible = false
+offset_top = 266.0
+offset_bottom = 286.0
+
+[connection signal="timeout" from="AttackDurtion" to="." method="_on_attack_durtion_timeout"]

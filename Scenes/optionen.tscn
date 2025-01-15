@@ -1,0 +1,204 @@
+[gd_scene load_steps=31 format=3 uid="uid://opi1fltacmk7"]
+
+[ext_resource type="Script" path="res://Scripts/optionen.gd" id="1_ey88b"]
+[ext_resource type="Texture2D" uid="uid://bxjeocmqembvk" path="res://Grafik/Button-Sheet.webp" id="2_2vqm8"]
+[ext_resource type="Texture2D" uid="uid://b7rmoffleos4i" path="res://Grafik/Button_Pressed-Sheet.webp" id="3_bka8q"]
+[ext_resource type="Texture2D" uid="uid://8aumexlpuv2v" path="res://Grafik/Sprite-0003.png" id="4_58e0y"]
+[ext_resource type="Texture2D" uid="uid://6607kqxdn6cg" path="res://Grafik/Bush.webp" id="5_ba4ew"]
+[ext_resource type="Texture2D" uid="uid://dr60ynoso7urk" path="res://Grafik/Sprite-0001.png" id="5_e1ftg"]
+[ext_resource type="Texture2D" uid="uid://cmrru1hrotmfd" path="res://Grafik/Sprite-0002.png" id="5_ov8v4"]
+[ext_resource type="FontFile" uid="uid://c18owl8guvbr5" path="res://Assets/PixelifySans-VariableFont_wght.ttf" id="8_me6r8"]
+[ext_resource type="PackedScene" uid="uid://bfnfpt64lq3gd" path="res://fader.tscn" id="9_l6y4r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lwn6d"]
+texture = ExtResource("5_ba4ew")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rs4ow"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nc6ju"]
+texture = ExtResource("3_bka8q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o25p3"]
+texture = ExtResource("3_bka8q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3altc"]
+texture = ExtResource("2_2vqm8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tjin3"]
+content_margin_top = 6.0
+texture = ExtResource("5_ov8v4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i46dj"]
+texture = ExtResource("5_e1ftg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uy1jj"]
+texture = ExtResource("5_e1ftg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lmjjy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u5pam"]
+content_margin_top = 6.0
+texture = ExtResource("5_ov8v4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0scgd"]
+texture = ExtResource("5_e1ftg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fkrjs"]
+texture = ExtResource("5_e1ftg")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0250l"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wdaeo"]
+texture = ExtResource("3_bka8q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ved6f"]
+texture = ExtResource("3_bka8q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gibxf"]
+texture = ExtResource("3_bka8q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ly8da"]
+content_margin_left = 3.0
+texture = ExtResource("2_2vqm8")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pbte2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xd541"]
+texture = ExtResource("3_bka8q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2a1pp"]
+texture = ExtResource("3_bka8q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_81ysg"]
+texture = ExtResource("2_2vqm8")
+
+[node name="Optionen" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_ey88b")
+
+[node name="Hintergrund" type="Panel" parent="."]
+offset_right = 512.0
+offset_bottom = 288.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_lwn6d")
+
+[node name="ZurückKnopf" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 240.0
+offset_right = 82.0
+offset_bottom = 280.0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_me6r8")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rs4ow")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nc6ju")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_o25p3")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3altc")
+text = "Back"
+
+[node name="MusikSlider" type="HSlider" parent="."]
+offset_left = 252.0
+offset_top = 89.0
+offset_right = 450.0
+offset_bottom = 105.0
+theme_override_icons/grabber = ExtResource("4_58e0y")
+theme_override_icons/grabber_highlight = ExtResource("4_58e0y")
+theme_override_styles/slider = SubResource("StyleBoxTexture_tjin3")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_i46dj")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_uy1jj")
+value = 100.0
+
+[node name="MusikValue" type="Label" parent="."]
+offset_left = 100.0
+offset_top = 77.0
+offset_right = 236.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_me6r8")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_lmjjy")
+text = "Music:"
+
+[node name="SoundSlider" type="HSlider" parent="."]
+visible = false
+offset_left = 252.0
+offset_top = 108.0
+offset_right = 450.0
+offset_bottom = 124.0
+theme_override_icons/grabber = ExtResource("4_58e0y")
+theme_override_icons/grabber_highlight = ExtResource("4_58e0y")
+theme_override_styles/slider = SubResource("StyleBoxTexture_u5pam")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_0scgd")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_fkrjs")
+value = 100.0
+
+[node name="SoundValue" type="Label" parent="."]
+visible = false
+offset_left = 100.0
+offset_top = 95.0
+offset_right = 236.0
+offset_bottom = 134.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_me6r8")
+theme_override_font_sizes/font_size = 32
+text = "Sound:"
+
+[node name="FullscreenButton" type="CheckBox" parent="."]
+offset_left = 159.0
+offset_top = 150.0
+offset_right = 343.0
+offset_bottom = 189.0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_me6r8")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0250l")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_wdaeo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ved6f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gibxf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ly8da")
+text = "Fullscreen"
+icon_alignment = 1
+
+[node name="ControlsButton" type="Button" parent="."]
+offset_left = 166.0
+offset_top = 207.0
+offset_right = 336.0
+offset_bottom = 246.0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_me6r8")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pbte2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xd541")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2a1pp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_81ysg")
+text = "Controls"
+
+[node name="Fader" parent="." instance=ExtResource("9_l6y4r")]
+visible = false
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 520.0
+offset_bottom = 296.0
+start = true
+
+[connection signal="pressed" from="ZurückKnopf" to="." method="_on_zurück_knopf_pressed"]
+[connection signal="value_changed" from="MusikSlider" to="." method="_on_musik_slider_value_changed"]
+[connection signal="toggled" from="FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="pressed" from="ControlsButton" to="." method="_on_controls_button_pressed"]

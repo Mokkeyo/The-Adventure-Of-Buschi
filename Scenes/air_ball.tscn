@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://cqnpo4lwlawsc"]
+
+[ext_resource type="Script" path="res://Scripts/air_ball.gd" id="1_o2slu"]
+[ext_resource type="PackedScene" uid="uid://7e0odiarlhle" path="res://Scenes/hurtBox.tscn" id="2_d01yg"]
+[ext_resource type="Texture2D" uid="uid://chrfj02kl638s" path="res://Assets/Airball.png" id="2_v1ra2"]
+[ext_resource type="PackedScene" uid="uid://cvcgtb6nd37pw" path="res://Scenes/healthComponent.tscn" id="5_8cb3n"]
+[ext_resource type="PackedScene" uid="uid://dv3atuh5dpicx" path="res://Scenes/projectile_component.tscn" id="6_c7b47"]
+[ext_resource type="PackedScene" uid="uid://did1lmobv5wea" path="res://Scenes/hitBox.tscn" id="6_wsfq2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vfp0p"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iqhsh"]
+radius = 7.0
+
+[node name="AirBall" type="Node2D" groups=["Projectile"]]
+rotation = 3.14159
+script = ExtResource("1_o2slu")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0.0234098, -0.0234106)
+scale = Vector2(0.434204, 0.434204)
+texture = ExtResource("2_v1ra2")
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("2_d01yg")]
+collision_mask = 2
+healthComponent = NodePath("../healthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_vfp0p")
+
+[node name="healthComponent" parent="." instance=ExtResource("5_8cb3n")]
+max_health = 1.0
+
+[node name="ProjectileComponent" parent="." instance=ExtResource("6_c7b47")]
+
+[node name="HitBox" parent="." instance=ExtResource("6_wsfq2")]
+collision_mask = 2
+dmg = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_iqhsh")
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

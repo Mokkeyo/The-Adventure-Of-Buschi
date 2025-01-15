@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf7eyl4l1ev8m"]
+
+[ext_resource type="Script" path="res://Scripts/SwingAttack.gd" id="1_aym7e"]
+
+[node name="Attack" type="Node2D"]
+script = ExtResource("1_aym7e")
+
+[node name="AttackDuration" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="AttackDuration" to="." method="_on_attack_duration_timeout"]

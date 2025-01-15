@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://lalcvk5orjpk"]
+
+[ext_resource type="Script" path="res://Scripts/falling_rocks.gd" id="1_d6cot"]
+[ext_resource type="Texture2D" uid="uid://c8ixhilksq4wb" path="res://Assets/icon.svg" id="1_fsnfg"]
+[ext_resource type="PackedScene" uid="uid://did1lmobv5wea" path="res://Scenes/hitBox.tscn" id="2_8l834"]
+[ext_resource type="Texture2D" uid="uid://dqfwaj8qgi42b" path="res://Assets/Spike.png" id="4_cuhvx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lch6o"]
+size = Vector2(12, 37)
+
+[sub_resource type="Animation" id="Animation_7g2ak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitBox/Icon:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.45098)]
+}
+
+[sub_resource type="Animation" id="Animation_ydbt3"]
+resource_name = "falling"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 59)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitBox/Icon:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.45098), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jankp"]
+_data = {
+"RESET": SubResource("Animation_7g2ak"),
+"falling": SubResource("Animation_ydbt3")
+}
+
+[node name="FallingRocks" type="Node2D"]
+script = ExtResource("1_d6cot")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(9.53674e-07, 83)
+scale = Vector2(0.25, 0.046875)
+texture = ExtResource("1_fsnfg")
+
+[node name="HitBox" parent="." instance=ExtResource("2_8l834")]
+collision_mask = 2
+dmg = 5.0
+
+[node name="Icon" type="Sprite2D" parent="HitBox"]
+modulate = Color(1, 1, 1, 0.45098)
+position = Vector2(-3.57628e-07, 8.5)
+scale = Vector2(0.375, 1.15625)
+texture = ExtResource("4_cuhvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_lch6o")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jankp")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw0xf6mmsk3a7"]
+
+[ext_resource type="Script" path="res://Scripts/SpawnErdbruch.gd" id="1_w7yay"]
+
+[node name="SpawnErdbruch" type="Node2D"]
+script = ExtResource("1_w7yay")
+duration = 2.0
+tempCouldown = 2.0
+wut = 20

@@ -1,0 +1,166 @@
+[gd_scene load_steps=20 format=3 uid="uid://ewjw17vxrdqj"]
+
+[ext_resource type="Script" path="res://Scripts/royalknight.gd" id="1_x4m01"]
+[ext_resource type="Texture2D" uid="uid://c8ixhilksq4wb" path="res://Assets/icon.svg" id="2_bb13b"]
+[ext_resource type="PackedScene" uid="uid://did1lmobv5wea" path="res://Scenes/hitBox.tscn" id="3_nowqj"]
+[ext_resource type="Texture2D" uid="uid://c6a22uje8iumq" path="res://Assets/RoyalKnight.webp" id="3_pjlk7"]
+[ext_resource type="PackedScene" uid="uid://cvcgtb6nd37pw" path="res://Scenes/healthComponent.tscn" id="4_atd8a"]
+[ext_resource type="PackedScene" uid="uid://dshfmgyulrshs" path="res://Scenes/detection_area.tscn" id="5_guxf2"]
+[ext_resource type="PackedScene" uid="uid://cf7eyl4l1ev8m" path="res://Scenes/SwingAttack.tscn" id="5_yev3w"]
+[ext_resource type="PackedScene" uid="uid://7e0odiarlhle" path="res://Scenes/hurtBox.tscn" id="6_gdkxc"]
+[ext_resource type="PackedScene" uid="uid://cr4fvx58qf0wg" path="res://Scenes/move_to_player.tscn" id="8_j5qoi"]
+[ext_resource type="PackedScene" uid="uid://b2qct6hmm5r5f" path="res://Scenes/attack_animation.tscn" id="9_do428"]
+[ext_resource type="PackedScene" uid="uid://0g4rtgww5yi6" path="res://Scenes/rageSprite.tscn" id="11_h70fc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4rymk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pjlk7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d5yh5"]
+radius = 85.9476
+height = 334.837
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qfu7o"]
+radius = 120.017
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1mosv"]
+radius = 77.0584
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vq5x0"]
+height = 40.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0kiyj"]
+radius = 24.1024
+height = 57.475
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ft1h"]
+radius = 12.0
+height = 64.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ebnuf"]
+height = 66.0
+
+[node name="royalknight" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 0
+script = ExtResource("1_x4m01")
+max_speed = 150
+
+[node name="Marker2D" type="Marker2D" parent="."]
+visible = false
+rotation = 3.35103
+
+[node name="Icon" type="Sprite2D" parent="Marker2D"]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(12, 3)
+rotation = -0.785398
+scale = Vector2(0.19441, 0.03125)
+texture = ExtResource("2_bb13b")
+offset = Vector2(64, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_4rymk")
+autoplay = "default"
+frame_progress = 0.417267
+offset = Vector2(25, -9.53675e-06)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1.19209e-07, 0)
+scale = Vector2(0.11635, 0.119461)
+shape = SubResource("CapsuleShape2D_d5yh5")
+
+[node name="DetectionArea" parent="." groups=["Enemy"] instance=ExtResource("5_guxf2")]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_qfu7o")
+
+[node name="DetectionArea2" parent="." instance=ExtResource("5_guxf2")]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2"]
+shape = SubResource("CircleShape2D_1mosv")
+debug_color = Color(0, 0.650073, 0.113768, 0.42)
+
+[node name="healthComponent" parent="." instance=ExtResource("4_atd8a")]
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("6_gdkxc")]
+visible = false
+collision_layer = 5
+healthComponent = NodePath("../healthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CapsuleShape2D_vq5x0")
+debug_color = Color(0.524565, 0.0867072, 0, 0.42)
+
+[node name="DetectionArea3" parent="." instance=ExtResource("5_guxf2")]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea3"]
+scale = Vector2(-0.979185, 1.07873)
+shape = SubResource("CapsuleShape2D_0kiyj")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SwingAttack" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("5_yev3w")]
+attackSpeed = 3.0
+attackDuration = 0.4
+Hitbox = NodePath("HitBox")
+
+[node name="HitBox" parent="SwingAttack" node_paths=PackedStringArray("parent") instance=ExtResource("3_nowqj")]
+collision_mask = 2
+dmg = 10.0
+parent = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwingAttack/HitBox"]
+position = Vector2(29, 0)
+shape = SubResource("CapsuleShape2D_2ft1h")
+disabled = true
+
+[node name="AttackAnimation" parent="SwingAttack" instance=ExtResource("9_do428")]
+visible = false
+position = Vector2(27.8326, -10.3011)
+rotation = 0.0
+scale = Vector2(0.313153, 0.396989)
+
+[node name="PointAttack" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("5_yev3w")]
+attackSpeed = 3.0
+Hitbox = NodePath("HitBox")
+
+[node name="HitBox" parent="PointAttack" node_paths=PackedStringArray("parent") instance=ExtResource("3_nowqj")]
+collision_mask = 2
+dmg = 10.0
+parent = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointAttack/HitBox"]
+position = Vector2(49, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ebnuf")
+disabled = true
+
+[node name="AttackAnimation" parent="PointAttack" instance=ExtResource("9_do428")]
+visible = false
+position = Vector2(59.4021, -0.176737)
+scale = Vector2(0.316836, 0.412347)
+
+[node name="MoveToPlayer" parent="." instance=ExtResource("8_j5qoi")]
+
+[node name="AnimatedSprite2D2" parent="." instance=ExtResource("11_h70fc")]
+position = Vector2(-1, -1)
+scale = Vector2(1.08594, 2.625)
+frame_progress = 0.964758

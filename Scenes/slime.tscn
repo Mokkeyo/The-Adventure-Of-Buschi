@@ -1,0 +1,89 @@
+[gd_scene load_steps=14 format=3 uid="uid://bp1m1n8hns62b"]
+
+[ext_resource type="Script" path="res://Scripts/Slime.gd" id="1_l5qtq"]
+[ext_resource type="PackedScene" uid="uid://dshfmgyulrshs" path="res://Scenes/detection_area.tscn" id="2_0ypt1"]
+[ext_resource type="Texture2D" uid="uid://d4kaydvn4vsqf" path="res://Assets/slime1.png" id="2_5j0xk"]
+[ext_resource type="PackedScene" uid="uid://did1lmobv5wea" path="res://Scenes/hitBox.tscn" id="3_kbjok"]
+[ext_resource type="PackedScene" uid="uid://7e0odiarlhle" path="res://Scenes/hurtBox.tscn" id="5_7qy5f"]
+[ext_resource type="PackedScene" uid="uid://cvcgtb6nd37pw" path="res://Scenes/healthComponent.tscn" id="6_vd8a2"]
+[ext_resource type="PackedScene" uid="uid://cr4fvx58qf0wg" path="res://Scenes/move_to_player.tscn" id="7_um7bn"]
+[ext_resource type="PackedScene" uid="uid://0g4rtgww5yi6" path="res://Scenes/rageSprite.tscn" id="8_m47fr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f3met"]
+radius = 488.37
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uoqei"]
+radius = 17.0
+height = 82.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gr2e3"]
+radius = 19.0
+height = 86.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fl7mj"]
+radius = 16.0
+height = 80.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4p6ts"]
+radius = 16.0
+height = 80.0
+
+[node name="Slime" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 5
+script = ExtResource("1_l5qtq")
+max_speed = 50
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(2, -0.499997)
+scale = Vector2(1.375, 0.609375)
+texture = ExtResource("2_5j0xk")
+
+[node name="DetectionArea" parent="." instance=ExtResource("2_0ypt1")]
+visible = false
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_f3met")
+
+[node name="HitBox" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_kbjok")]
+collision_mask = 2
+dmg = 10.0
+parent = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_uoqei")
+
+[node name="closeArea" parent="." instance=ExtResource("2_0ypt1")]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="closeArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_gr2e3")
+debug_color = Color(0, 0.402188, 0.112169, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fl7mj")
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("5_7qy5f")]
+collision_layer = 5
+healthComponent = NodePath("../healthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4p6ts")
+debug_color = Color(0.989781, 0, 0.286363, 0.42)
+
+[node name="healthComponent" parent="." instance=ExtResource("6_vd8a2")]
+
+[node name="MoveToPlayer" parent="." instance=ExtResource("7_um7bn")]
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("8_m47fr")]
+position = Vector2(-8, -7)
+frame_progress = 0.578508
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://uupo25iybxej"]
+
+[ext_resource type="Texture2D" uid="uid://c1vixs0sscabx" path="res://Assets/WutBar.png" id="1_hwno0"]
+[ext_resource type="Script" path="res://Scripts/wut_bar.gd" id="1_q2p74"]
+[ext_resource type="Texture2D" uid="uid://dkdg7qy53n7wb" path="res://Assets/WutProgressBar.png" id="3_ksdy6"]
+
+[node name="WutBar" type="TextureRect"]
+z_index = 2
+offset_top = -10.0
+offset_right = 32.0
+offset_bottom = 22.0
+texture = ExtResource("1_hwno0")
+script = ExtResource("1_q2p74")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 15.0
+offset_right = 29.0
+offset_bottom = 17.0
+value = 100.0
+texture_progress = ExtResource("3_ksdy6")
