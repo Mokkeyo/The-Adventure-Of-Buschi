@@ -1,0 +1,384 @@
+[gd_scene load_steps=50 format=3 uid="uid://bvnko7ny2apvo"]
+
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_khqql"]
+[ext_resource type="Texture2D" uid="uid://bfj4rrd6wy7tr" path="res://Grafik/PauseScreen.webp" id="2_82by0"]
+[ext_resource type="Texture2D" uid="uid://8aumexlpuv2v" path="res://Grafik/Sprite-0003.png" id="3_6p35j"]
+[ext_resource type="FontFile" uid="uid://c18owl8guvbr5" path="res://Assets/PixelifySans-VariableFont_wght.ttf" id="3_hwyvr"]
+[ext_resource type="Texture2D" uid="uid://cmrru1hrotmfd" path="res://Grafik/Sprite-0002.png" id="4_k7be8"]
+[ext_resource type="Texture2D" uid="uid://dr60ynoso7urk" path="res://Grafik/Sprite-0001.png" id="5_0hbqo"]
+[ext_resource type="PackedScene" uid="uid://bfnfpt64lq3gd" path="res://fader.tscn" id="7_05gsk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ecb5"]
+texture = ExtResource("2_82by0")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0g3ti"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_54aee"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b2qcy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uv56a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qpy6j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iyocp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l1fjc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d73i0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ge40d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kfa7i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_phr1r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u0ee3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jfh14"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djjwn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2tich"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dohry"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uapq8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mw2d1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_esfa8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kaqo0"]
+content_margin_top = 6.0
+texture = ExtResource("4_k7be8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hbky6"]
+content_margin_top = 6.0
+texture = ExtResource("5_0hbqo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_drnsx"]
+content_margin_top = 6.0
+texture = ExtResource("5_0hbqo")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_scnfn"]
+content_margin_left = 59.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v64yr"]
+content_margin_left = 59.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_py4jb"]
+content_margin_left = 59.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ru0m8"]
+content_margin_left = 59.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_biri7"]
+content_margin_left = 59.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkujl"]
+content_margin_left = 59.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l73w4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4nbqx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0w34i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aio5p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e01bj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2gbpj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1dbmn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iv82u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qxu5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fqkr7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_irq6m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_22hio"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_638bh"]
+
+[node name="PauseMenu" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_khqql")
+
+[node name="Hintergrund" type="Panel" parent="."]
+offset_left = 131.0
+offset_top = 21.0
+offset_right = 389.0
+offset_bottom = 270.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7ecb5")
+
+[node name="PauseLabel" type="Label" parent="."]
+offset_left = 216.0
+offset_top = 25.0
+offset_right = 309.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.94256, 0.846653, 7.70092e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "Pause"
+
+[node name="Menu" type="Node2D" parent="."]
+
+[node name="FortsetzenButton" type="Button" parent="Menu"]
+offset_left = 155.0
+offset_top = 64.0
+offset_right = 365.0
+offset_bottom = 99.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_hwyvr")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0g3ti")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_54aee")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b2qcy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uv56a")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qpy6j")
+text = "Continue"
+
+[node name="EinstellungButton" type="Button" parent="Menu"]
+offset_left = 155.0
+offset_top = 125.0
+offset_right = 365.0
+offset_bottom = 158.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_hwyvr")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iyocp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_l1fjc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d73i0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ge40d")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kfa7i")
+text = "Settings"
+
+[node name="BeendenButton" type="Button" parent="Menu"]
+offset_left = 156.0
+offset_top = 189.0
+offset_right = 365.0
+offset_bottom = 226.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_hwyvr")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/focus = SubResource("StyleBoxEmpty_phr1r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_u0ee3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jfh14")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_djjwn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2tich")
+text = "Quit"
+
+[node name="Einstellungen" type="Node2D" parent="."]
+visible = false
+
+[node name="ZurückKnopf" type="Button" parent="Einstellungen"]
+offset_left = 156.0
+offset_top = 188.0
+offset_right = 244.0
+offset_bottom = 227.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("3_hwyvr")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dohry")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uapq8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mw2d1")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_esfa8")
+text = "Back"
+
+[node name="MusikSlider" type="HSlider" parent="Einstellungen"]
+offset_left = 160.0
+offset_top = 102.0
+offset_right = 360.0
+offset_bottom = 118.0
+theme_override_icons/grabber = ExtResource("3_6p35j")
+theme_override_icons/grabber_highlight = ExtResource("3_6p35j")
+theme_override_styles/slider = SubResource("StyleBoxTexture_kaqo0")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_hbky6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_drnsx")
+value = 100.0
+
+[node name="MusikValue" type="Label" parent="Einstellungen"]
+offset_left = 158.0
+offset_top = 62.0
+offset_right = 242.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_hwyvr")
+theme_override_font_sizes/font_size = 27
+text = "Music: 100"
+
+[node name="Fullscreen" type="CheckBox" parent="Einstellungen"]
+offset_left = 150.0
+offset_top = 125.0
+offset_right = 364.0
+offset_bottom = 158.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_hwyvr")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/focus = SubResource("StyleBoxEmpty_scnfn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_v64yr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_py4jb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ru0m8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_biri7")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qkujl")
+text = "Fullscreen"
+
+[node name="ControlsButton" type="Button" parent="Einstellungen"]
+offset_left = 244.0
+offset_top = 189.0
+offset_right = 365.0
+offset_bottom = 226.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("3_hwyvr")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l73w4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4nbqx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0w34i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_aio5p")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e01bj")
+text = "Controls"
+
+[node name="Steuerung" type="Node2D" parent="."]
+visible = false
+
+[node name="TextEdit" type="TextEdit" parent="Steuerung"]
+offset_left = 156.0
+offset_top = 67.0
+offset_right = 364.0
+offset_bottom = 196.0
+theme_override_colors/background_color = Color(1, 1, 1, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
+theme_override_colors/search_result_border_color = Color(0, 0, 0, 0)
+theme_override_colors/search_result_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = -1
+theme_override_fonts/font = ExtResource("3_hwyvr")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2gbpj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1dbmn")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_iv82u")
+text = "UP :  W
+LEFT :  A
+RIGHT :  D
+DOWN :  S
+DODGE :  SPACE
+ATTACK :  LMB
+Erdbruch: 1
+Heilung: 4"
+editable = false
+selecting_enabled = false
+
+[node name="ZurückKnopf2" type="Button" parent="Steuerung"]
+offset_left = 156.0
+offset_top = 189.0
+offset_right = 365.0
+offset_bottom = 228.0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_hwyvr")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2qxu5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fqkr7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_irq6m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_22hio")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_638bh")
+text = "Back"
+
+[node name="Fader" parent="." instance=ExtResource("7_05gsk")]
+visible = false
+offset_left = -32.0
+offset_top = -34.0
+offset_right = 540.0
+offset_bottom = 330.0
+
+[connection signal="pressed" from="Menu/FortsetzenButton" to="." method="_on_fortsetzen_button_pressed"]
+[connection signal="pressed" from="Menu/EinstellungButton" to="." method="_on_einstellung_button_pressed"]
+[connection signal="pressed" from="Menu/BeendenButton" to="." method="_on_beenden_button_pressed"]
+[connection signal="pressed" from="Einstellungen/ZurückKnopf" to="." method="_on_zurück_knopf_pressed"]
+[connection signal="value_changed" from="Einstellungen/MusikSlider" to="." method="_on_musik_slider_value_changed"]
+[connection signal="toggled" from="Einstellungen/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="Einstellungen/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="Steuerung/ZurückKnopf2" to="." method="_on_zurück_knopf_2_pressed"]

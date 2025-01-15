@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5jhy0527u3ru"]
+
+[ext_resource type="Script" path="res://Scripts/DodgierRoll.gd" id="1_0b4qo"]
+
+[node name="DodgierRoll" type="Node2D"]
+script = ExtResource("1_0b4qo")
+duration = null
+tempCouldown = null
+dodgeSpeed = null
+
+[node name="durationTimer" type="Timer" parent="."]
+one_shot = true

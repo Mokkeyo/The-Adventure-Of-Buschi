@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dveujoluasg85"]
+
+[ext_resource type="Script" path="res://Scripts/sprint.gd" id="1_372r3"]
+
+[node name="Sprint" type="Node2D"]
+script = ExtResource("1_372r3")
+duration = 5.0
+tempCouldown = 8.0
+
+[node name="durationTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="durationTimer" to="." method="_on_duration_timer_timeout"]

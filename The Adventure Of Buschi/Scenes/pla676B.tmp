@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfkdwoeogdfrg"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_5wf1j"]
+[ext_resource type="Texture2D" uid="uid://b3eeg2v0vs2dc" path="res://icon.svg" id="1_dnsqf"]
+[ext_resource type="PackedScene" uid="uid://cp3ftoeh0gfka" path="res://Szene/dodge_roll.tscn" id="3_13v2n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_egi52"]
+radius = 64.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("utilityAbility")]
+script = ExtResource("1_5wf1j")
+utilityAbility = NodePath("DodgeRoll")
+
+[node name="TestGrafik" type="Sprite2D" parent="."]
+texture = ExtResource("1_dnsqf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_egi52")
+
+[node name="UtilityCouldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="DodgeRoll" parent="." instance=ExtResource("3_13v2n")]

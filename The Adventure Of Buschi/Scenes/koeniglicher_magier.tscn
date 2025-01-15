@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://bajrsbrq4uj6f"]
+
+[ext_resource type="Script" path="res://Scripts/koeniglicher_magier.gd" id="1_flyne"]
+[ext_resource type="Texture2D" uid="uid://ckp0ywrevnh31" path="res://Assets/Mage.webp" id="3_li01j"]
+[ext_resource type="PackedScene" uid="uid://dshfmgyulrshs" path="res://Scenes/detection_area.tscn" id="3_vm3uj"]
+[ext_resource type="PackedScene" uid="uid://7e0odiarlhle" path="res://Scenes/hurtBox.tscn" id="4_pmuot"]
+[ext_resource type="PackedScene" uid="uid://cvcgtb6nd37pw" path="res://Scenes/healthComponent.tscn" id="5_r0cim"]
+[ext_resource type="PackedScene" uid="uid://cr4fvx58qf0wg" path="res://Scenes/move_to_player.tscn" id="6_1jgw6"]
+[ext_resource type="PackedScene" uid="uid://0g4rtgww5yi6" path="res://Scenes/rageSprite.tscn" id="7_mevwf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_doirg"]
+radius = 476.206
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_70iil"]
+radius = 154.159
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dl0xm"]
+radius = 455.484
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uyo1j"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r8bbx"]
+height = 22.0
+
+[node name="KoeniglicherMagier" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 4
+script = ExtResource("1_flyne")
+buffDauer = 5
+max_speed = 100
+
+[node name="DetectionArea2" parent="." instance=ExtResource("3_vm3uj")]
+visible = false
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2"]
+shape = SubResource("CircleShape2D_doirg")
+
+[node name="DetectionArea" parent="." instance=ExtResource("3_vm3uj")]
+visible = false
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_70iil")
+
+[node name="Marker2D" type="Node2D" parent="."]
+visible = false
+scale = Vector2(2.41406, 4.375)
+
+[node name="TeamBuffArea" parent="." instance=ExtResource("3_vm3uj")]
+visible = false
+collision_mask = 4
+chr = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeamBuffArea"]
+shape = SubResource("CircleShape2D_dl0xm")
+
+[node name="Barbar" type="Sprite2D" parent="."]
+texture = ExtResource("3_li01j")
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("4_pmuot")]
+collision_layer = 5
+healthComponent = NodePath("../healthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_uyo1j")
+debug_color = Color(0.485829, 0, 0.0566304, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_r8bbx")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="healthComponent" parent="." instance=ExtResource("5_r0cim")]
+
+[node name="MoveToPlayer" parent="." instance=ExtResource("6_1jgw6")]
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("7_mevwf")]
+position = Vector2(1, -7)
+scale = Vector2(1.01563, 2.625)
+frame_progress = 0.874841

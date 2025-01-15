@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdt5t8vvovrkl"]
+
+[ext_resource type="FontFile" uid="uid://c18owl8guvbr5" path="res://Assets/PixelifySans-VariableFont_wght.ttf" id="1_6v4ml"]
+[ext_resource type="Texture2D" uid="uid://nje1toivnf1u" path="res://TileMaps/Buschi.png" id="1_jvcs5"]
+[ext_resource type="Script" path="res://Scripts/end_scene.gd" id="1_ufwqt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n73kr"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="EndScene" type="Node2D"]
+script = ExtResource("1_ufwqt")
+
+[node name="Panel" type="Panel" parent="."]
+offset_top = -4.0
+offset_right = 530.0
+offset_bottom = 294.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n73kr")
+
+[node name="Buschi" type="Sprite2D" parent="."]
+position = Vector2(256, 152)
+scale = Vector2(5.94, 5.94)
+texture = ExtResource("1_jvcs5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 2.0
+offset_top = 8.0
+offset_right = 514.0
+offset_bottom = 296.0
+theme_override_colors/font_outline_color = Color(0.340207, 0.263139, 0.0273044, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("1_6v4ml")
+theme_override_font_sizes/normal_font_size = 32
+text = "Congratulations
+you defeated the golem und Finished the 1. Area and the beta of the game. your adventure is Finished for now, but the Adventure of Buschi continues"
