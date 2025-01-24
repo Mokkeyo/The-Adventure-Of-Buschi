@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://cfkdwoeogdfrg"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_5wf1j"]
+[ext_resource type="Texture2D" uid="uid://b3eeg2v0vs2dc" path="res://icon.svg" id="1_dnsqf"]
+[ext_resource type="PackedScene" uid="uid://7e0odiarlhle" path="res://Scenes/hurtBox.tscn" id="3_tws2k"]
+[ext_resource type="PackedScene" uid="uid://cvcgtb6nd37pw" path="res://Scenes/healthComponent.tscn" id="4_rtmjx"]
+[ext_resource type="PackedScene" uid="uid://cf7eyl4l1ev8m" path="res://Scenes/SwingAttack.tscn" id="5_kvv8y"]
+[ext_resource type="PackedScene" uid="uid://did1lmobv5wea" path="res://Scenes/hitBox.tscn" id="6_bfvta"]
+[ext_resource type="PackedScene" uid="uid://uupo25iybxej" path="res://Scenes/wut_bar.tscn" id="7_kato8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_egi52"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t7cs5"]
+radius = 15.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_owme6"]
+height = 42.0
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_5wf1j")
+defense = null
+attackPower = null
+max_speed = null
+accel = null
+friction = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_egi52")
+
+[node name="TestGrafik" type="Sprite2D" parent="."]
+scale = Vector2(0.234375, 0.234375)
+texture = ExtResource("1_dnsqf")
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("3_tws2k")]
+healthComponent = NodePath("../healthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_t7cs5")
+debug_color = Color(0.517058, 0, 0.0865408, 0.42)
+
+[node name="healthComponent" parent="." instance=ExtResource("4_rtmjx")]
+
+[node name="UtilityCouldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="WeaponCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="Attack" parent="." node_paths=PackedStringArray("Hitbox") instance=ExtResource("5_kvv8y")]
+weaponArt = "Dolch"
+Hitbox = NodePath("HitBox")
+
+[node name="Sprite2D" type="Sprite2D" parent="Attack"]
+
+[node name="HitBox" parent="Attack" node_paths=PackedStringArray("parent") instance=ExtResource("6_bfvta")]
+dmg = 12.0
+parent = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/HitBox"]
+position = Vector2(42, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_owme6")
+disabled = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="WutBar" parent="." instance=ExtResource("7_kato8")]
+offset_left = -252.0
+offset_top = -140.0
+offset_right = -202.0
+offset_bottom = -120.0
+scale = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -150.0
+offset_top = -129.0
+offset_right = -84.0
+offset_bottom = -106.0
+text = "100/ 100"
+
+[node name="Attack1Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Attack2Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Attack3Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Attack4Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SupportTimer" type="Timer" parent="."]
+one_shot = true

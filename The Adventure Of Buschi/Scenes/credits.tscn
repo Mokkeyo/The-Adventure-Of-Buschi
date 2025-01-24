@@ -50,14 +50,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_1x1in")
 
 [node name="Programmer" type="Label" parent="Design/Panel5"]
 layout_mode = 0
-offset_right = 160.0
+offset_right = 161.0
 offset_bottom = 44.0
 theme_override_colors/font_outline_color = Color(0, 0.470588, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("1_dx7c4")
 theme_override_font_sizes/font_size = 16
 text = "DESIGN-LEADER:
-Julia
+(waiting for approv)
 "
 horizontal_alignment = 1
 
@@ -77,12 +77,12 @@ theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("1_dx7c4")
 theme_override_font_sizes/font_size = 16
 text = "DESIGNER:
-Eva
-Elias
-Giannis
+(waiting for approv)
+(waiting for approv)
+(waiting for approv)
 Helen Nikolay
 Marcel Plocieniczak
-Nergis
+Nergis Yavuz
 "
 horizontal_alignment = 1
 
@@ -125,7 +125,7 @@ theme_override_fonts/font = ExtResource("1_dx7c4")
 theme_override_font_sizes/font_size = 16
 text = "PROGRAMMER:
 Milan Markovic
-Hatice"
+Hatice Aydogan"
 horizontal_alignment = 1
 
 [node name="Concept Creation" type="Node2D" parent="."]
@@ -166,7 +166,7 @@ theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("1_dx7c4")
 theme_override_font_sizes/font_size = 16
 text = "CONCEPT-CREATOR:
-Gustav
+Gustav Meusel
 Niklas Bannasch
 Jonas Bemba"
 horizontal_alignment = 1

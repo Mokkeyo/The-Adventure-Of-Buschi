@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu47ikbccisi8"]
+
+[ext_resource type="Script" path="res://Scripts/test.gd" id="1_4iltq"]
+[ext_resource type="PackedScene" uid="uid://cfkdwoeogdfrg" path="res://Scenes/player.tscn" id="1_ggi3e"]
+[ext_resource type="PackedScene" uid="uid://3y7yd1aww1ct" path="res://Scenes/air_ball.tscn" id="3_7vn44"]
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_4iltq")
+
+[node name="Player" parent="." instance=ExtResource("1_ggi3e")]
+position = Vector2(-116, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-257, -142, -256, 144, 258, 144, 256, -144, -240, -143, -241, -132, 239, -130, 244, 130, -248, 130, -249, -134, -247, -145)
+
+[node name="AirBall" parent="." instance=ExtResource("3_7vn44")]
+position = Vector2(92, 2)

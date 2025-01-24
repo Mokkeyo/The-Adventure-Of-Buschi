@@ -1,6 +1,7 @@
 extends Node2D
 class_name healthcomponent
 
+signal droppedToZero
 @export var max_health: float = 100
 var health: float
 var counter: PackedScene = preload("res://Scenes/damage_count_player.tscn")

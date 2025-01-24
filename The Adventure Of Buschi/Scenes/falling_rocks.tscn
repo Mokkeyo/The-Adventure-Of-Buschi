@@ -103,7 +103,6 @@ scale = Vector2(0.25, 0.046875)
 texture = ExtResource("1_fsnfg")
 
 [node name="HitBox" parent="." instance=ExtResource("2_8l834")]
-collision_mask = 2
 dmg = 5.0
 
 [node name="Icon" type="Sprite2D" parent="HitBox"]

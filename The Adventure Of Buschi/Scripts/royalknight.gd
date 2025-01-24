@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	var attack: Array[Node2D] = [$SwingAttack, $PointAttack]
 	if attackArea.character and $Cooldown.is_stopped():
 		var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-		var i: int = rng.randi_range(0, 1)
+		var i: int = rng.randf_range(0, 2)
 		$Cooldown.start(attack[i].attackSpeed)
 		attack[i].attack()
 
