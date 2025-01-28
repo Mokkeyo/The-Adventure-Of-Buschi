@@ -1,1 +1,0 @@
-Leave the (.exe) and the (.pck) in the same Folder, otherwise it won't work
