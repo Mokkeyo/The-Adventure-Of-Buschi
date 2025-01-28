@@ -26,10 +26,9 @@ contributors to "the-adventure-of-buschi"
 
 -Nergis Yavuz
 
--(Waiting for Approval)
+-Eva Zech
 
--(Waiting for Approval)
+-Ioannis kovanidis
 
--(Waiting for Approval)
+-Julia Grinsch
 
--(Waiting for Approval)
