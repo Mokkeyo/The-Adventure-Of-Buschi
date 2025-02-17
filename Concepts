@@ -1,0 +1,112 @@
+Hauptkonzept des Spiels:
+Es gibt einen Helden der sein Leben als Barbar gelebt hat und nun nach seiner letzten Schlacht in einer Art Wald aufgewacht ist. Kurz nachdem er aufwacht begrüßt ihn ein sehr komischer Mann der sich selbst Buschi nennt, Buschi ist das Tutorial, gibt dem held ein socket ohne informationen dazu und hilft dem Helden ab und zu während dem Abenteuer. Der Held kann sich an kaum was erinnern (er hat ne amnesie) und wacht mit einer Fähigkeit auf, sowie seinem standart equip.Buschi leitet den Helden ein wenig nach dem Tutorial in das nächste Wald segment wo gegner auf ihn warten, dieses Segment beschreibt ein Biom, in Biomen sind biom gerechte gegner so wie allgemeine gegner. In jedem Biom wartet ein Boss auf den Spieler welcher ihm das Juwel des Bioms gibt sobald er besiegt wurde, nachdem der Held ein juwel erhält erholt er sich ein wenig von der Amnesie, erinnert sich an eine fähigkeit mehr und kann besser mit seiner waffe hantieren (stat boost, mastery level up). nachdem der held alle juwelen in das socket gepackt hat kann er am großen tor das ihn vorher nicht vorbeigelassen hat vorbei und dort erwartet ihn ein komischer ort [Fragment des Helden] dort bekämpft er einen alten, sehr bekannten Feind.
+
+Gegner:
+Anfangsbiom/ Dunkler Wald:
+Schleim
+_Recht langsam, toxisches grün, eher süßes design, ungefähr halb so groß wie der spieler, 
+_Attacke: forward dash, der Schleim springt nach vorne und beschädigt alles was ihm im weg steht; 5dmg (Der Sprung geht 2x seine breite lang)
+_Stats: 40 HP,
+            Contact damage: True
+
+Königlicher Ritter
+_fast so schnell wie der Spieler, leichtes gewand, leichte aber starke rüstung (sonst an nem limgrave knight von elden ring orientieren), 
+_Attacke: Schwertschlag, ein vorwärts schlag der eine kleine area deckt; 12dmg
+_Stats: 100 HP,
+            Contact damage: False
+
+Schwerer Ritter 
+_Eher langsam aber nicht zu langsam, sehr sehr dick, eisen maske, man kann sich bei der körperform an roadhog von overwatch orientieren, trägt glänzende rüstung und trägt eisenmaske die sein gesicht verdeckt. seine waffe ist ein Kanabo. Doppelt so breit wie simple ritter.
+_Attacke: Ein Rush bei dem der Ritter in richtung spieler rennt und stopt sobald er an ihm vorbei ist oder sobald er gegen eine Wand prallt; 15dmg.
+   mit dem Kanabo schwingt er in nem 180° Winkel vor sich;  20dmg
+_Stats: 180 HP,
+            Contact damage: False
+
+königlicher Magier
+_so schnell wie ein königlicher ritter, recht schmal, trägt ein ganz körper gewand, hat einen Holz stab
+_Attacke: bufft den damage jeder truppe in einem 1m Radius; +15% dmg.
+  beschwört 0.8sek einen ball aus luft und schießt diesen dann auf den Spieler; 14dmg.
+_Stats: 80 HP,
+            Contact damage: False
+
+Zweites Biom/ Wald:
+Fliegende Vase
+_schwebt vor sich hin, schneller als der Spieler, kommt immer in 3er gruppen (wenn gruppen aus 4 gegnern bestehen und diese 4 durch vasen ersetzt werden sind es 12 gegner), hat löcher und kleine cracks in sich.
+_Attacke: Keine richtige! Die vase schwebt auf den Spieler zu und der Spieler kriegt contact damage durch die löcher an der Vase; 7dmg.
+_Stats: 1 HP,
+            Contact damage: True
+
+Kleiner Stein
+_relativ langsam, hat immer die gleiche farbe wie die steine aus der ruine um ihn herum, klein.
+_Attacke: Er schießt eine art laser aus seinem Auge; 12dmg
+_Stats: 80 HP,
+           Contact damage: False
+
+Langer Stein 
+_Sehr langsam, hat auch immer die gleiche farbe wie die steine aus der Ruine um ihn herum, länglich in die höhe.
+_Attacke: lässt sich auf den Spieler fallen; 50dmg
+_Stats: 150 HP,
+           Contact damage: False 
+
+Golem (Boss)
+_Sehr massiver Golem, leicht überwachsen, stellt den Boss für die Wald region dar, rennt dem Spieler sehr agressiv hinterher 
+_Attacke: Wirft spitze steine in einem 90° Winkel vor sich.
+                    Schlägt auf den Spieler zu wenn der Spieler vor ihm ist.
+                    Brüllt so laut das Steine von Oben hinab fliegen. 
+                    Beschwört 2 [Kleiner Stein] und einige [Fliegende Vase] zu sich sobald er 30% leben erreicht.
+_Stats: 600 HP,
+            Contact damage: False 
+
+Drittes Biom/ Canyon:
+Dieb
+_Banditenkleidung, Reudig, schnell, läuft mit einem dolch rum und sticht sehr schnell zu.
+_Attacke: Sticht dich mit seinem dolch ab; 13 dmg.
+                   Wirft seinen Dolch auf dich, der geworfene Dolch verschwindet dann kurz nachdem er auf dem boden gelandet ist, der Dieb kriegt aus dem nicht einen
+                   neuen; 20dmg.
+_Stats: 120 HP,
+              Contact damage: False
+
+Bogenschütze
+_Etwas langsamer als der Spieler, versucht immer etwas entfernung vom Spieler aufzubauen aber auch nicht zu weit weg so das der Spieler in seiner reichweite ist ohne das er in Gefahr ist. trägt Verschieden gefärbte Kleidung.
+_Attacke: Rote Kleidung: Schießt einen Feuerfeil, wirst du von dem Pfeil getroffen kriegst du jede sekunde 5% deiner Max HP abgezogen für 3sek.
+                    Grüne Kleidung: Der Bogenschütze setzt einen kleinen pfeilsturm vor sich in einem 100° winkel frei, jeder pfeil fügt 3dmg zu.
+_Stats: 100 HP,
+            Contact damage: False
+
+bandit räuber (Bandit mit schild)
+_Etwas langsamer als der Spieler, Versucht sich vor seine Gruppenmitglieder zu werfen um als menschlicher schild zu fungieren, der Schild vor sich resembliert ein dreieck und der Schild ist fast so groß wie er selber, seine waffe ist eine simple streitaxt (inspo: https://www.melbar.eu/items/Blankwaffen/Aexte/Mittelalter-Streitaxt-M2S5729.jpg). Die meiste zeit verbringt er hinter seinem Schild also greift er bemerkbar weniger als die anderen truppen an, nach 3 hits ist er gestunnt damit der spieler sich hinter ihn bewegen und schaden verursachen kann
+_Attacke: Greift vorwärts mit seiner axt an; 12dmg
+_Stats 130 HP,
+              Contact damage: False 
+
+Items:
+gegner:
+-handvoll münzen (1-5g)
+-Heilung
+-Questgegenstände
+
+NPC:
+Für abschlussvon Quests:
+-Münzen(kommt auf die quest an) 
+-Kartenfragmente (z.b. truen sind oder bossräume)
+-Kleidung
+-Mithelferkleidung
+Händler:
+Verkauf von items 
+-Quests
+-Kleidung
+-Heilung
+
+Truen:
+-wenig münzen (5-10g)
+-Kleidung
+-Heilung
+-Protkristalle
+
+Bossitems:
+-Fragmentteil(für den sockel)
+-Wiederbelebungstränke
+-Kleidung
+-Rüstung
+-Kampftrophäen
+-grosßerhaufen Münzen (15-20g)
