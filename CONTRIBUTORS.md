@@ -1,34 +1,39 @@
-contributors to "the-adventure-of-buschi"
+👥 Contributors – The Adventure of Buschi
+🔹 Head Leader
+Max Luca Dietrich
 
--Max Luca Dietrich
+🔹 Programming
+Umut-Can Bektas (@Mokkeyo) – Programming Lead
 
--Eren-Can Ado
+Milan Markovic
 
--Gustav Meusel
+Hatice Aydogan
 
--Niklas Bannasch
+🔹 Concept
+Eren-Can Ado – Concept Lead
 
--Jonas Bemba
+Gustav Meusel
 
--Umut-Can Bektas (Mokkeyo)
+Niklas Bannasch
 
--Milan Markovic
+Jonas Bemba
 
--Hatice Aydogan
+🔹 Design
+Julia Grinsch – Design Lead
 
--Merlin Pallgen
+Eva Zech
 
--Jan Hoffmann
+Ioannis Kovanidis
 
--Helen Nikolay
+Helen Nikolay
 
--Marcel Roman Plocieniczak
+Marcel Roman Plocieniczak
 
--Nergis Yavuz
+Nergis Yavuz
 
--Eva Zech
+🔹 Music & Sound
+Merlin Pallgen
 
--Ioannis kovanidis
+Jan Hoffmann
 
--Julia Grinsch
 
