@@ -1,3 +1,17 @@
-The "Executable" File Contains the projekt as an (Windows) application, which can be started.
+## 📦 Projektdateien
 
-The "The Adventure Of Buschi" File was created using godot 4.3 and contains the projekt.
+- **The Adventure of Buschi (.exe)**  
+  Enthält das Projekt als ausführbare Windows-Anwendung.  
+  Erstellt mit Godot Engine 4.3.
+
+- **Godot-Projektdateien (.pck/.import/.scn etc.)**  
+  Kompletter Quellcode und Assets des Spiels – nutzbar im Godot Editor.
+
+---
+
+## ⚠️ Hinweis zur .exe-Datei
+
+- Die `.exe` wurde selbstständig mit Godot erstellt und ist **nicht digital signiert**.
+- Daher kann Windows Defender oder andere Sicherheitssoftware beim ersten Start **eine Warnung anzeigen**.
+- Diese Warnung ist technisch bedingt und bei privaten Entwicklungsprojekten **völlig normal**.
+- ✅ Die Datei ist **virenfrei**, wurde von mir selbst kompiliert und kann **sicher ausgeführt** werden.
