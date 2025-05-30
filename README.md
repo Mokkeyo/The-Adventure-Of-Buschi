@@ -4,7 +4,7 @@
   Enthält das Projekt als ausführbare Windows-Anwendung.  
   Erstellt mit Godot Engine 4.3.
 
-- **Godot-Projektdateien (.pck/.import/.scn etc.)**  
+- **Godot-Projektdateien (.import/.scn/ .gd etc.)**  
   Kompletter Quellcode und Assets des Spiels – nutzbar im Godot Editor.
 
 ---
